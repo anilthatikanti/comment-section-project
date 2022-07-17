@@ -4,13 +4,40 @@ import {formatDistanceToNow} from 'date-fns'
 import './index.css'
 
 const CommentItem = props => {
-  const {commentDetails, color, date, deleteItem} = props
-  const {id, name, comment, letter} = commentDetails
+  const {commentDetails, deleteItem, isLike} = props
+  const {id, name, comment, letter, isLiked, date, color} = commentDetails
   const time = formatDistanceToNow(date)
 
   const onDelete = () => {
     deleteItem(id)
   }
+
+  const onLIke = () => {
+    isLike(id)
+  }
+
+  const like = isLiked ? (
+    <div className="likeContainer ">
+      <button type="button" className="btnLike" onClick={onLIke}>
+        <img
+          className="like"
+          src="https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png"
+          alt="like"
+        />
+      </button>
+      <p>Like</p>
+    </div>
+  ) : (
+    <div className="likeContainer ">
+      <button type="button" className="btnLike" onClick={onLIke}>
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/comments-app/like-img.png"
+          alt="like"
+        />
+      </button>
+      <p>Like</p>
+    </div>
+  )
 
   return (
     <li className="listContainer">
@@ -25,16 +52,7 @@ const CommentItem = props => {
         </div>
       </div>
       <div className="bottomContainer">
-        <div className="likeContainer ">
-          <button type="button" className="btnLike">
-            <img
-              className="like"
-              src="https://assets.ccbp.in/frontend/react-js/comments-app/like-img.png"
-              alt="like"
-            />
-          </button>
-          <p>Like</p>
-        </div>
+        {like}
         <button
           type="button"
           testid="delete"

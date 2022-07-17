@@ -31,16 +31,37 @@ class Comments extends Component {
   addComment = event => {
     event.preventDefault()
     const {name, comment} = this.state
-    const newComment = {
-      id: uuidv4(),
-      letter: name[0],
-      name,
-      comment,
+    if (name.length !== 0 && comment.length !== 0) {
+      const newComment = {
+        id: uuidv4(),
+        letter: name[0],
+        name,
+        date: new Date(),
+        comment,
+        isLiked: false,
+        color:
+          initialContainerBackgroundClassNames[
+            Math.floor(
+              Math.random() * initialContainerBackgroundClassNames.length,
+            )
+          ],
+      }
+      this.setState(prevState => ({
+        commentList: [...prevState.commentList, newComment],
+        name: '',
+        comment: '',
+      }))
     }
+  }
+
+  isLike = id => {
     this.setState(prevState => ({
-      commentList: [...prevState.commentList, newComment],
-      name: '',
-      comment: '',
+      commentList: prevState.commentList.map(eachItem => {
+        if (eachItem.id === id) {
+          return {...eachItem, isLiked: !eachItem.isLiked}
+        }
+        return eachItem
+      }),
     }))
   }
 
@@ -52,7 +73,7 @@ class Comments extends Component {
 
   render() {
     const {commentList, name, comment} = this.state
-    const date = new Date()
+
     return (
       <div className="container">
         <div className="commentContain">
@@ -95,14 +116,7 @@ class Comments extends Component {
               key={eachItem.id}
               commentDetails={eachItem}
               deleteItem={this.deleteItem}
-              color={
-                initialContainerBackgroundClassNames[
-                  Math.floor(
-                    Math.random() * initialContainerBackgroundClassNames.length,
-                  )
-                ]
-              }
-              date={date}
+              isLike={this.isLike}
             />
           ))}
         </ul>

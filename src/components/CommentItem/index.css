@@ -60,6 +60,7 @@ span {
 }
 .name-time {
   display: flex;
+  align-items: center;
 }
 .name-comment {
   display: flex;
