@@ -1,0 +1,103 @@
+.amber {
+  background-color: #f59e0b;
+}
+
+.blue {
+  background-color: #0b69ff;
+}
+
+.orange {
+  background-color: #f97316;
+}
+
+.emerald {
+  background-color: #10b981;
+}
+
+.teal {
+  background-color: #14b8a6;
+}
+
+.red {
+  background-color: #b91c1c;
+}
+
+.light-blue {
+  background-color: #0ea5e9;
+}
+
+/* Write your CSS here */
+span {
+  border-radius: 20px;
+  border-width: 0px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+.timeStamp {
+  color: #cbd2d9;
+  font-family: 'roboto';
+  font-weight: 500;
+  margin: -2px;
+}
+.commentContainer {
+  height: 10px;
+}
+.commenterName {
+  margin: 0px 15px 0px 5px;
+  font-family: 'roboto';
+  font-weight: 500;
+}
+.commentPara {
+  font-family: 'roboto';
+  font-weight: 400;
+  color: #7e858e;
+}
+.name-time {
+  display: flex;
+}
+.name-comment {
+  display: flex;
+  flex-direction: column;
+}
+.listItem {
+  display: flex;
+  list-style-type: none;
+  margin-left: -45px;
+}
+.btnLike {
+  background-color: transparent;
+  border-width: 0px;
+}
+.likeContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -45px;
+  font-family: 'roboto';
+  font-weight: 500;
+  width: 70px;
+}
+.bottomContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.deleteBtn {
+  border-width: 0px;
+  background-color: transparent;
+}
+.like {
+  width: 20px;
+  height: 20px;
+}
+.hrLine {
+  margin-left: -40px;
+}
+.listContainer {
+  width: 100%;
+}
